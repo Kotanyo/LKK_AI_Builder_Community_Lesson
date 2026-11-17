@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 先锋养成计划 · 课程表</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23A6161F'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23F5F2E9' font-family='serif'%3E李%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F5F2E9;
+  --paper2:#EFEADD;
+  --card:#FAF8F2;
+  --ink:#14130F;
+  --ink2:#3D392E;
+  --muted:#7A7361;
+  --line:#D8D1BF;
+  --line2:#BEB5A0;
+  --red:#A6161F;
+  --red2:#8C0F18;
+  --gold:#9A7838;
+  --dark:#1B1A15;
+  --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --wrap:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:84px;}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
+ul{list-style:none;}
+::selection{background:var(--red);color:var(--paper);}
+.wrap{padding:0 var(--wrap);max-width:1520px;margin:0 auto;}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:40;
+  background:var(--paper);border-bottom:1px solid var(--line);
+}
+.nav-in{
+  height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none;}
+.mark{
+  width:26px;height:26px;background:var(--red);color:#fff;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:15px;
+}
+.brand-t{display:none;font-size:10.5px;letter-spacing:.16em;line-height:1.3;}
+.brand-t span{display:block;color:var(--muted);font-size:9px;letter-spacing:.14em;}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  padding:11px 9px;font-size:13px;color:var(--muted);white-space:nowrap;
+  border-bottom:1px solid transparent;transition:color .2s;
+}
+.tab:hover{color:var(--ink);}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:500;border-bottom-color:var(--red);}
+.nav-meta{display:none;font-size:10px;letter-spacing:.14em;color:var(--muted);flex:none;}
+
+/* ---------- shared ---------- */
+.view{display:none;scroll-margin-top:84px;}
+.view.active{display:block;}
+.eyebrow{
+  display:flex;align-items:center;gap:10px;
+  font-size:10.5px;letter-spacing:.2em;color:var(--red);
+}
+.eyebrow:before{content:"";width:22px;height:1px;background:var(--red);flex:none;}
+.display{
+  font-family:var(--serif);font-weight:600;letter-spacing:-.01em;
+  font-size:52px;line-height:1.1;
+}
+.display em{font-style:normal;color:var(--red);}
+.h2{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.2;letter-spacing:-.005em;}
+.sub{font-size:12px;color:var(--muted);letter-spacing:.04em;}
+.lede{color:var(--ink2);font-size:14.5px;line-height:1.95;}
+
+/* ---------- hero ---------- */
+.hero{padding-top:40px;}
+.hero-grid{display:block;}
+.hero-copy .lede{margin-top:18px;max-width:38em;}
+.hero-copy .lede b{font-weight:500;color:var(--ink);}
+.cta{
+  display:inline-flex;align-items:center;gap:12px;margin-top:24px;
+  font-size:13px;letter-spacing:.05em;border-bottom:1px solid var(--ink);padding-bottom:7px;
+}
+.cta:after{content:"";width:16px;height:1px;background:var(--ink);transition:width .25s;}
+.cta:hover:after{width:26px;}
+
+.panel{margin-top:34px;border-top:1px solid var(--line);}
+.panel-t{font-size:10px;letter-spacing:.2em;color:var(--muted);padding:14px 0 6px;}
+.funnel{display:block;}
+.fstep{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  border-bottom:1px solid var(--line);padding:11px 0 9px;
+}
+.fstep .num{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.1;}
+.fstep .num s{font-size:12px;font-weight:400;text-decoration:none;margin-left:3px;font-family:var(--sans);}
+.fstep .role{font-size:11.5px;color:var(--muted);text-align:right;}
+.fstep:nth-child(2) .num{color:var(--red);}
+
+.keyrow{
+  display:flex;justify-content:space-between;gap:12px;font-size:11.5px;
+  padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink2);
+}
+.keyrow b{font-weight:500;color:var(--red);letter-spacing:.1em;margin-right:10px;}
+.keyrow span:last-child{color:var(--muted);}
+
+.metrics{
+  margin-top:34px;display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
+}
+.metric{padding:16px 0 18px;border-right:1px solid var(--line);}
+.metric:nth-child(2n){border-right:none;padding-left:16px;}
+.metric .k{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1;}
+.metric .k s{font-size:12px;font-weight:400;text-decoration:none;margin-left:4px;font-family:var(--sans);}
+.metric .l{font-size:11px;color:var(--muted);margin-top:9px;letter-spacing:.06em;}
+
+.cats{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;}
+.cat .letter{
+  font-family:var(--serif);font-size:12px;color:var(--red);letter-spacing:.1em;
+  border-bottom:1px solid var(--red);display:inline-block;padding-bottom:2px;
+}
+.cat h4{font-size:13.5px;font-weight:500;margin-top:10px;}
+.cat p{font-size:11px;color:var(--muted);line-height:1.65;margin-top:5px;}
+
+/* ---------- page head ---------- */
+.phead{padding-top:36px;}
+.phead-row{display:block;margin-top:8px;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;font-size:10.5px;color:var(--muted);}
+.legend i{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:1px;border:1px solid transparent;}
+
+/* ---------- filters ---------- */
+.filters{margin-top:22px;display:flex;flex-direction:column;gap:10px;}
+.frow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.flabel{font-size:10px;letter-spacing:.16em;color:var(--muted);flex:none;width:100%;margin-bottom:2px;}
+.pill{
+  font-size:11.5px;padding:6px 12px;border:1px solid var(--line2);color:var(--ink2);
+  transition:background .18s,color .18s,border-color .18s;white-space:nowrap;
+}
+.pill:hover{border-color:var(--ink);}
+.pill[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+/* ---------- schedule grid ---------- */
+
+.sgrid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:12px;}
+.mod{
+  position:relative;display:flex;flex-direction:column;text-align:left;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);
+  padding:14px 15px 13px;min-height:150px;
+  transition:border-color .2s,transform .2s;
+}
+.mod:hover{border-color:var(--ink);}
+.mod:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
+.mod .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
+.mod .code{font-family:var(--serif);font-size:11.5px;color:var(--red);letter-spacing:.12em;}
+.mod .wk{font-size:9.5px;color:var(--muted);letter-spacing:.1em;white-space:nowrap;}
+.mod h3{font-size:14.5px;font-weight:500;line-height:1.45;margin-top:10px;}
+.mod p{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:6px;}
+.mod .mtags{margin-top:auto;padding-top:12px;display:flex;gap:5px;flex-wrap:wrap;}
+.tag{
+  font-size:9.5px;letter-spacing:.06em;color:var(--ink2);
+  border:1px solid var(--line2);padding:2px 6px;
+}
+.mod.hide{display:none;}
+
+/* ---------- tools ---------- */
+.tmatrix{margin-top:26px;border-top:1px solid var(--line2);}
+.trow{display:block;padding:16px 0;border-bottom:1px solid var(--line);}
+.trow-head{display:flex;align-items:baseline;gap:10px;}
+.trow .no{font-family:var(--serif);font-size:12px;color:var(--red);}
+.trow .fam{font-size:14px;font-weight:500;}
+.trow .fam small{font-size:9.5px;color:var(--muted);letter-spacing:.1em;margin-left:8px;font-weight:400;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.chip{font-size:10.5px;border:1px solid var(--line2);padding:3px 8px;color:var(--ink2);background:var(--card);}
+.chip.hl{border-color:var(--ink);color:var(--ink);font-weight:500;}
+.tprod{margin-top:10px;padding-left:12px;border-left:2px solid var(--red);}
+.tprod b{font-size:11.5px;font-weight:500;display:block;}
+.tprod span{font-size:10.5px;color:var(--muted);line-height:1.7;display:block;margin-top:2px;}
+.tnote{
+  margin-top:0;padding-top:26px;
+  display:grid;grid-template-columns:1fr;gap:16px;
+}
+.tnote p{font-size:11.5px;color:var(--muted);line-height:1.85;}
+.tnote b{color:var(--ink);font-weight:500;}
+
+/* ---------- cert ---------- */
+.ladder{margin-top:28px;display:grid;grid-template-columns:1fr;gap:14px;}
+.step{border:1px solid var(--line);background:var(--card);padding:18px 16px 16px;position:relative;}
+.step .lv{
+  font-family:var(--serif);font-size:11.5px;letter-spacing:.14em;color:var(--red);
+}
+.step h3{font-size:17px;font-weight:500;margin-top:8px;font-family:var(--serif);}
+.step .req{font-size:11.5px;color:var(--muted);line-height:1.8;margin-top:10px;}
+.step .gain{font-size:11.5px;color:var(--ink2);margin-top:12px;padding-top:10px;border-top:1px solid var(--line);line-height:1.7;}
+.step .gain b{font-weight:500;color:var(--red);margin-right:6px;}
+.closing{margin:32px 0 0;padding-top:18px;border-top:1px solid var(--line2);}
+.closing p{font-family:var(--serif);font-size:19px;line-height:1.8;max-width:32em;}
+
+/* ---------- cert process ---------- */
+.proc{
+  margin-top:34px;padding-top:18px;border-top:1px solid var(--line2);
+  display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;
+}
+.pstep .n{font-family:var(--serif);font-size:11px;color:var(--red);letter-spacing:.12em;}
+.pstep h4{font-size:13px;font-weight:500;margin-top:7px;}
+.pstep p{font-size:11px;color:var(--muted);line-height:1.7;margin-top:4px;}
+
+/* ---------- drawer ---------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(20,19,15,.42);z-index:60;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.overlay.on{opacity:1;pointer-events:auto;}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;z-index:61;
+  width:100%;max-width:460px;background:var(--paper);border-left:1px solid var(--line);
+  transform:translateX(100%);transition:transform .32s cubic-bezier(.22,.61,.36,1);
+  display:flex;flex-direction:column;
+}
+.drawer.on{transform:translateX(0);}
+.dhead{padding:20px 22px 16px;border-bottom:1px solid var(--line);position:relative;}
+.dclose{
+  position:absolute;top:16px;right:16px;width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line2);
+}
+.dclose:hover{border-color:var(--ink);}
+.dclose svg{width:13px;height:13px;}
+.dcode{font-family:var(--serif);font-size:11.5px;color:var(--red);letter-spacing:.14em;}
+.dtitle{font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.35;margin-top:8px;padding-right:40px;}
+.dtags{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px;}
+.dbody{padding:20px 22px 40px;overflow-y:auto;flex:1;}
+.dsec{margin-bottom:24px;}
+.dsec h4{font-size:9.5px;letter-spacing:.2em;color:var(--muted);margin-bottom:8px;}
+.dsec p{font-size:13px;line-height:1.85;color:var(--ink2);}
+.dsec ul li{
+  font-size:12.5px;line-height:1.8;color:var(--ink2);
+  padding-left:14px;position:relative;margin-bottom:4px;
+}
+.dsec ul li:before{content:"";position:absolute;left:0;top:.72em;width:5px;height:1px;background:var(--line2);}
+.dline{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--line);font-size:12px;}
+.dline span:first-child{color:var(--muted);flex:none;width:56px;font-size:10.5px;letter-spacing:.1em;}
+
+/* ---------- footer ---------- */
+.foot{
+  margin-top:44px;border-top:1px solid var(--line);
+  padding-top:18px;padding-bottom:26px;display:flex;justify-content:space-between;gap:16px;
+  font-size:10px;color:var(--muted);letter-spacing:.1em;
+}
+
+/* ================= desktop ================= */
+@media (min-width:640px){
+  :root{--wrap:32px;}
+  .brand-t{display:block;font-size:11px;}
+  .nav-meta{display:block;}
+  .cats{grid-template-columns:repeat(3,1fr);}
+  .metrics{grid-template-columns:repeat(4,1fr);}
+  .metric:nth-child(2n){border-right:1px solid var(--line);padding-left:0;}
+  .metric:nth-child(4n){border-right:none;}
+  .sgrid{grid-template-columns:repeat(2,1fr);}
+  .ladder{grid-template-columns:repeat(3,1fr);}
+  .proc{grid-template-columns:repeat(4,1fr);gap:0 26px;}
+  .filters{gap:8px;}
+  .flabel{width:64px;margin-bottom:0;}
+}
+@media (min-width:960px){
+  :root{--wrap:56px;}
+  .nav-in{height:72px;}
+  .brand-t{font-size:11.5px;}
+  .tab{padding:9px 16px;font-size:13.5px;}
+  .display{font-size:72px;}
+  .hero{padding-top:56px;}
+  .hero-grid{display:grid;grid-template-columns:1fr 400px;gap:56px;align-items:start;}
+  .panel{margin-top:0;}
+  .phead-row{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;}
+  .legend{margin-top:0;padding-bottom:6px;}
+  .filters{flex-direction:row;gap:22px;flex-wrap:wrap;}
+  .frow{gap:6px;}
+  .flabel{width:auto;margin-right:4px;}
+  .sgrid{grid-template-columns:repeat(3,1fr);gap:12px;}
+  .trow{
+    display:grid;grid-template-columns:206px minmax(0,1fr) 258px;
+    align-items:start;gap:0 22px;padding:0;
+  }
+  .trow-head{display:flex;align-items:baseline;gap:9px;padding:19px 0;}
+  .trow .fam{white-space:nowrap;}
+  .trow .fam small{display:block;margin-left:0;margin-top:3px;}
+  .chips{margin-top:0;padding:18px 0;align-self:start;}
+  .tprod{margin-top:0;padding:18px 0 18px 16px;border-left:1px solid var(--line);}
+  .trow:hover{background:var(--card);}
+  .tnote{grid-template-columns:1.1fr 1fr;gap:48px;}
+  .closing p{font-size:22px;}
+}
+@media (min-width:1280px){
+  :root{--wrap:72px;}
+  .display{font-size:84px;}
+  .sgrid{grid-template-columns:repeat(4,1fr);}
+  .mod h3{font-size:15px;}
+}
+
+
+html[lang="en"] .dline span:first-child{width:88px;letter-spacing:.02em;}
+.hero-grid>*{min-width:0;}
+.fstep,.keyrow{flex-wrap:wrap;row-gap:4px;}
+.langbtn{flex:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.12em;padding:9px 13px;margin-right:16px;border:1px solid var(--line2);background:transparent;color:var(--ink2);cursor:pointer;transition:border-color .2s,color .2s;}
+.langbtn:hover{border-color:var(--red);color:var(--red);}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">
+      <div class="mark">李</div>
+      <div class="brand-t">AI Builder Programme</div>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-go="overview" aria-selected="true" data-en="Overview" data-zh="总览">总览</button>
+      <button class="tab" role="tab" data-go="schedule" aria-selected="false" data-en="Schedule" data-zh="课程表">课程表</button>
+      <button class="tab" role="tab" data-go="tools" aria-selected="false" data-en="Tool matrix" data-zh="工具矩阵">工具矩阵</button>
+      <button class="tab" role="tab" data-go="cert" aria-selected="false" data-en="Certification" data-zh="认证">认证</button>
+    </div>
+    <button class="langbtn" id="langbtn" type="button" aria-label="Switch to English">EN</button>
+    <div class="nav-meta">2027 H1 · INTERNAL</div>
+  </div>
+</nav>
+
+<main>
+<!-- ================= 总览 ================= -->
+<section class="view active" id="overview">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow" data-en="AI LAB × HR · INTERNAL CAPABILITY BUILDING" data-zh="AI LAB × HR · 内部能力建设">AI LAB × HR · 内部能力建设</div>
+        <h1 class="display" data-en="AI Pioneer&lt;br&gt;Development &lt;em&gt;Programme&lt;/em&gt;" data-zh="AI 先锋&lt;br&gt;养成&lt;em&gt;计划&lt;/em&gt;">AI 先锋<br>养成<em>计划</em></h1>
+        <p class="lede" data-en="We draw &lt;b&gt;30–50 people&lt;/b&gt; from across departments and, over &lt;b&gt;12 weeks and 12 modules&lt;/b&gt;, turn them from tool users into internal FDEs who can build, teach and deliver. Every session ends with something real and usable." data-zh="从各部门抽调 &lt;b&gt;30–50 人&lt;/b&gt;，用 &lt;b&gt;12 周、12 个模块&lt;/b&gt; 把他们从“会用工具的人”推到“能搭、能教、能落地”的内部 FDE。每节课都要求交出一个真实可用的东西。">从各部门抽调 <b>30–50 人</b>，用 <b>12 周、12 个模块</b> 把他们从“会用工具的人”推到“能搭、能教、能落地”的内部 FDE。每节课都要求交出一个真实可用的东西。</p>
+        <button class="cta" data-go="schedule" data-en="View the full schedule" data-zh="查看完整课程表">查看完整课程表</button>
+      </div>
+
+      <div class="panel">
+        <div class="panel-t" data-en="Programme structure · 12 modules" data-zh="课程结构 · 12 个模块">课程结构 · 12 个模块</div>
+        <div class="funnel">
+          <div class="fstep"><div class="num" data-en="7&lt;s&gt;courses&lt;/s&gt;" data-zh="7&lt;s&gt;课&lt;/s&gt;">7<s>课</s></div><div class="role" data-en="Foundation · judgement and tools" data-zh="基础层 · 判断与工具">基础层 · 判断与工具</div></div>
+          <div class="fstep"><div class="num" data-en="4&lt;s&gt;courses&lt;/s&gt;" data-zh="4&lt;s&gt;课&lt;/s&gt;">4<s>课</s></div><div class="role" data-en="Advanced · reliability and reuse" data-zh="进阶层 · 稳定与复用">进阶层 · 稳定与复用</div></div>
+          <div class="fstep"><div class="num" data-en="1&lt;s&gt;course&lt;/s&gt;" data-zh="1&lt;s&gt;课&lt;/s&gt;">1<s>课</s></div><div class="role" data-en="Capstone · graduation" data-zh="结业 · Capstone">结业 · Capstone</div></div>
+        </div>
+        <div class="panel-t" style="margin-top:18px;" data-en="Three principles" data-zh="三条原则">三条原则</div>
+        <div class="keyrow"><span data-en="&lt;b&gt;Deliverable&lt;/b&gt;Output every session" data-zh="&lt;b data-en=&quot;Deliverable&quot;&gt;交付&lt;/b&gt;课课有产出"><b data-en="Deliverable">交付</b>课课有产出</span><span data-en="No passive lectures" data-zh="不留纯听讲">不留纯听讲</span></div>
+        <div class="keyrow"><span data-en="&lt;b&gt;Vehicle&lt;/b&gt;Tools are only the vehicle" data-zh="&lt;b data-en=&quot;Vehicle&quot;&gt;载体&lt;/b&gt;工具只是载体"><b data-en="Vehicle">载体</b>工具只是载体</span><span data-en="We teach capability" data-zh="讲的是能力">讲的是能力</span></div>
+        <div class="keyrow"><span data-en="&lt;b&gt;Capstone&lt;/b&gt;Someone really uses it" data-zh="&lt;b data-en=&quot;Capstone&quot;&gt;结业&lt;/b&gt;有人真在用"><b data-en="Capstone">结业</b>有人真在用</span><span data-en="Prototypes and demos don't count" data-zh="原型与 demo 不算">原型与 demo 不算</span></div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="k" data-en="12&lt;s&gt;weeks&lt;/s&gt;" data-zh="12&lt;s&gt;周&lt;/s&gt;">12<s>周</s></div><div class="l" data-en="One session a week · 12 sessions" data-zh="每周一课 · 12 次主课">每周一课 · 12 次主课</div></div>
+      <div class="metric"><div class="k" data-en="12&lt;s&gt;modules&lt;/s&gt;" data-zh="12&lt;s&gt;模块&lt;/s&gt;">12<s>模块</s></div><div class="l" data-en="Six categories · one deliverable per module" data-zh="六大类 · 一课一交付">六大类 · 一课一交付</div></div>
+      <div class="metric"><div class="k" data-en="6&lt;s&gt;families&lt;/s&gt;" data-zh="6&lt;s&gt;族&lt;/s&gt;">6<s>族</s></div><div class="l" data-en="Tool matrix · teaching vehicles" data-zh="工具矩阵 · 教学载体">工具矩阵 · 教学载体</div></div>
+      <div class="metric"><div class="k" data-en="1&lt;s&gt;use case&lt;/s&gt;" data-zh="1&lt;s&gt;个&lt;/s&gt;">1<s>个</s></div><div class="l" data-en="Deployable use case in your own department" data-zh="本部门可落地用例">本部门可落地用例</div></div>
+    </div>
+
+    <div class="cats">
+      <div class="cat"><div class="letter">A</div><h4 data-en="Cognition and judgement" data-zh="认知与判断">认知与判断</h4><p data-en="What AI can and cannot do" data-zh="AI 能干什么、不能干什么">AI 能干什么、不能干什么</p></div>
+      <div class="cat"><div class="letter">B</div><h4 data-en="Tool matrix" data-zh="工具矩阵">工具矩阵</h4><p data-en="Six tool families and their boundaries" data-zh="六族工具与使用边界">六族工具与使用边界</p></div>
+      <div class="cat"><div class="letter">C</div><h4 data-en="Agent engineering" data-zh="Agent 工程">Agent 工程</h4><p data-en="Stable, reusable, parallel" data-zh="稳定、可复用、可并行">稳定、可复用、可并行</p></div>
+      <div class="cat"><div class="letter">D</div><h4 data-en="Content production" data-zh="内容生产">内容生产</h4><p data-en="Image, text, video and compliance review" data-zh="图文视频与合规审核">图文视频与合规审核</p></div>
+      <div class="cat"><div class="letter">E</div><h4 data-en="Decisions and deployment" data-zh="决策与落地">决策与落地</h4><p data-en="Model-assisted judgement and acceptance" data-zh="模型辅助判断、结果验收">模型辅助判断、结果验收</p></div>
+      <div class="cat"><div class="letter">F</div><h4 data-en="Governance and compliance" data-zh="治理与合规">治理与合规</h4><p data-en="Data classification and tool authorisation" data-zh="数据分级与工具授信">数据分级与工具授信</p></div>
+    </div>
+
+    <div class="closing" style="margin-top:30px;">
+      <p data-en="Tools date. Capability doesn't.&lt;br&gt;So the curriculum is ordered by capability, not by tool name." data-zh="工具会过时，能力不会。&lt;br&gt;所以课程不按工具名排，按能力排。">工具会过时，能力不会。<br>所以课程不按工具名排，按能力排。</p>
+    </div>
+  </div>
+  <div class="wrap foot"><span data-en="AI BUILDER PROGRAMME · CURRICULUM DRAFT" data-zh="AI BUILDER PROGRAMME · 课程规划稿">AI BUILDER PROGRAMME · 课程规划稿</span><span>LEE KUM KEE · AI &amp; DATA</span></div>
+</section>
+
+<!-- ================= 课程表 ================= -->
+<section class="view" id="schedule">
+  <div class="wrap phead">
+    <div class="phead-row">
+      <div>
+        <h2 class="h2" data-en="12-week schedule" data-zh="12 周课程表">12 周课程表</h2>
+        <p class="sub" style="margin-top:10px;" data-en="7 foundation modules · 4 advanced modules · Capstone review in week 12" data-zh="基础层 7 课 · 进阶层 4 课 · 第 12 周结业答辩">基础层 7 课 · 进阶层 4 课 · 第 12 周结业答辩</p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="frow" id="f-layer">
+        <span class="flabel" data-en="Level" data-zh="层次">层次</span>
+        <button class="pill" aria-pressed="true" data-layer="all" data-en="All" data-zh="全部">全部</button>
+        <button class="pill" aria-pressed="false" data-layer="base" data-en="Foundation" data-zh="基础层">基础层</button>
+        <button class="pill" aria-pressed="false" data-layer="adv" data-en="Advanced" data-zh="进阶层">进阶层</button>
+        <button class="pill" aria-pressed="false" data-layer="cap" data-en="Capstone" data-zh="结业">结业</button>
+      </div>
+      <div class="frow" id="f-cat">
+        <span class="flabel" data-en="Category" data-zh="类别">类别</span>
+        <button class="pill" aria-pressed="true" data-cat="all" data-en="All" data-zh="全部">全部</button>
+        <button class="pill" aria-pressed="false" data-cat="A" data-en="A Cognition" data-zh="A 认知">A 认知</button>
+        <button class="pill" aria-pressed="false" data-cat="B" data-en="B Tools" data-zh="B 工具">B 工具</button>
+        <button class="pill" aria-pressed="false" data-cat="C" data-en="C Engineering" data-zh="C 工程">C 工程</button>
+        <button class="pill" aria-pressed="false" data-cat="D" data-en="D Content" data-zh="D 内容">D 内容</button>
+        <button class="pill" aria-pressed="false" data-cat="E" data-en="E Deployment" data-zh="E 落地">E 落地</button>
+      </div>
+    </div>
+
+    <div class="sgrid" id="sgrid">
+
+      <article class="mod" role="button" tabindex="0" aria-label="M01 · 认知：能力地图与人机分工" data-layer="base" data-cat="A">
+        <div class="top"><span class="code">M01</span><span class="wk">W1 · 3H</span></div>
+        <h3 data-en="Cognition: capability map and human–AI division of labour" data-zh="认知：能力地图与人机分工">认知：能力地图与人机分工</h3>
+        <p data-en="See where AI has got to, then which parts of a job are worth rebuilding." data-zh="先看 AI 发展到哪了，再看哪些岗位动作值得重做。">先看 AI 发展到哪了，再看哪些岗位动作值得重做。</p>
+        <div class="mtags"><span class="tag" data-en="A Cognition" data-zh="A 认知">A 认知</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Build judgement first. Know where AI has got to and where its limits are, then decide which tasks to hand over and which not to, so you don't automate the wrong step." data-zh="先建立判断力。知道 AI 这段时间走到哪一步、边界在哪，再分清哪些任务该交给 AI、哪些不该，避免把错误的环节自动化。">先建立判断力。知道 AI 这段时间走到哪一步、边界在哪，再分清哪些任务该交给 AI、哪些不该，避免把错误的环节自动化。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="AI trends: from chatting to getting work done. Four threads — reasoning, agents and long-running tasks, multimodal generation, decision models — and what each can do today" data-zh="AI 发展趋势：从“会聊天”到“会干活”——推理能力、Agent 与长周期任务、多模态生成、决策模型四条主线，各自现在能做到什么">AI 发展趋势：从“会聊天”到“会干活”——推理能力、Agent 与长周期任务、多模态生成、决策模型四条主线，各自现在能做到什么</li>
+            <li data-en="What the trends mean for us: which parts of a job change first and which won't change soon. Cases are refreshed before each session with the models and products current at the time" data-zh="趋势落到本公司：哪些岗位动作最先被改写，哪些短期不会变；案例开课前按当期发布的模型与产品更新">趋势落到本公司：哪些岗位动作最先被改写，哪些短期不会变；案例开课前按当期发布的模型与产品更新</li>
+            <li data-en="The four AI capabilities (retrieve / generate / reason / act): their limits and typical failure modes" data-zh="AI 四种能力（检索 / 生成 / 推理 / 执行）各自的能力上限与典型失败模式">AI 四种能力（检索 / 生成 / 推理 / 执行）各自的能力上限与典型失败模式</li>
+            <li data-en="Mark up three real processes from your own department for human–AI division of labour: what people do, what AI does, what people review" data-zh="用本部门三个真实流程做“人机分工”标注：谁做、AI 做、人复核">用本部门三个真实流程做“人机分工”标注：谁做、AI 做、人复核</li>
+            <li data-en="Break down the cost structure and human touchpoints of two cases already deployed inside the company" data-zh="拆 2 个公司内部已落地案例的成本结构与人工介入点">拆 2 个公司内部已落地案例的成本结构与人工介入点</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip" data-en="Doubao Work Partner" data-zh="豆包工作伙伴">豆包工作伙伴</span><span class="chip">LeeSpace AI</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="AI opportunity list for your role (at least 5 actions, prioritised)" data-zh="岗位 AI 机会清单（≥5 个动作 + 优先级）">岗位 AI 机会清单（≥5 个动作 + 优先级）</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Can explain which steps must not be automated, and why" data-zh="能说清哪些环节不能自动化、为什么">能说清哪些环节不能自动化、为什么</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M02 · 上下文工程" data-layer="base" data-cat="C">
+        <div class="top"><span class="code">M02</span><span class="wk">W2 · 3H</span></div>
+        <h3 data-en="Context engineering" data-zh="上下文工程">上下文工程</h3>
+        <p data-en="Prompt / Context / structured input, for reproducible output." data-zh="Prompt / Context / 结构化输入，让输出可复现。">Prompt / Context / 结构化输入，让输出可复现。</p>
+        <div class="mtags"><span class="tag" data-en="C Engineering" data-zh="C 工程">C 工程</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Make output reproducible instead of rephrasing the question and hoping." data-zh="让输出可复现，不靠“换个说法再问一次”碰运气。">让输出可复现，不靠“换个说法再问一次”碰运气。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="The four parts of a prompt: role, constraints, examples, output format" data-zh="Prompt 的四段结构：角色、约束、样例、输出格式">Prompt 的四段结构：角色、约束、样例、输出格式</li>
+            <li data-en="Where context comes from: data, definitions, past cases, counter-examples" data-zh="Context 从哪来：数据、口径、历史案例、反例">Context 从哪来：数据、口径、历史案例、反例</li>
+            <li data-en="Turn one verbal request into structured input and compare three outputs live" data-zh="把一句口头需求，改写成结构化输入，现场对比 3 次输出差异">把一句口头需求，改写成结构化输入，现场对比 3 次输出差异</li>
+            <li data-en="Data classification red lines: what must never go into a prompt" data-zh="数据分级红线：哪些内容不能进提示词">数据分级红线：哪些内容不能进提示词</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip" data-en="Doubao" data-zh="豆包">豆包</span><span class="chip">DeepSeek</span><span class="chip">Claude</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One reusable prompt template (with 3 counter-examples)" data-zh="一个可复用 Prompt 模板（含 3 个反例）">一个可复用 Prompt 模板（含 3 个反例）</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Same input three times, with the differences in output explained" data-zh="同一输入跑 3 次，输出差异可解释">同一输入跑 3 次，输出差异可解释</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M03 · 行业工具探索" data-layer="base" data-cat="B">
+        <div class="top"><span class="code">M03</span><span class="wk">W3 · 3H</span></div>
+        <h3 data-en="Exploring industry tools" data-zh="行业工具探索">行业工具探索</h3>
+        <p data-en="Perplexity · Grok · NotebookLM: a first pass over the tools the industry uses." data-zh="Perplexity · Grok · NotebookLM，把行业里的工具先摸一遍。">Perplexity · Grok · NotebookLM，把行业里的工具先摸一遍。</p>
+        <div class="mtags"><span class="tag" data-en="B Tools" data-zh="B 工具">B 工具</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Research, verify, leave a trail. Every conclusion traceable to a source." data-zh="会查、会验、会留痕。每条结论都能追到来源。">会查、会验、会留痕。每条结论都能追到来源。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="Run one industry scan with Perplexity deep research, reading each source and rating its credibility" data-zh="Perplexity 深研模式做一次行业扫描，逐条读来源、标可信度">Perplexity 深研模式做一次行业扫描，逐条读来源、标可信度</li>
+            <li data-en="Grok's strength in real-time information and its hallucination risk demonstrated together, then used to argue the opposing side" data-zh="Grok 实时信息的强项与幻觉风险同场演示，用它做反方论证">Grok 实时信息的强项与幻觉风险同场演示，用它做反方论证</li>
+            <li data-en="Summarise long documents with NotebookLM and compare how consistent three people's summaries are" data-zh="NotebookLM 归纳长文档，对比三人归纳结果的一致性">NotebookLM 归纳长文档，对比三人归纳结果的一致性</li>
+            <li data-en="An industry tool map: what upstream and downstream players use, what is worth trying, what is already outdated" data-zh="行业工具地图：上下游在用什么、哪些值得试、哪些已经过时">行业工具地图：上下游在用什么、哪些值得试、哪些已经过时</li>
+            <li data-en="The three fact-checking questions: who said it, when, and is there a second source" data-zh="“事实核查三问”：谁说的、什么时候、有没有第二来源">“事实核查三问”：谁说的、什么时候、有没有第二来源</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip hl">Perplexity</span><span class="chip hl">Grok</span><span class="chip">NotebookLM</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="An industry-scan SOP plus a competitor brief with sources" data-zh="行业扫描 SOP + 一份带来源的竞品简报">行业扫描 SOP + 一份带来源的竞品简报</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Every conclusion traceable and labelled with a credibility level" data-zh="每条结论可追溯，并标注可信度等级">每条结论可追溯，并标注可信度等级</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M04 · 企业内工具栈" data-layer="base" data-cat="B">
+        <div class="top"><span class="code">M04</span><span class="wk">W4 · 3H</span></div>
+        <h3 data-en="The in-house tool stack" data-zh="企业内工具栈">企业内工具栈</h3>
+        <p data-en="LeeSpace · Doubao Work Partner · Miaoda · Feishu Tag (Team Agent) · Feishu Base: the most heavily weighted module." data-zh="LeeSpace · 豆包工作伙伴 · 妙搭 · 飞书 Tag（Team Agent）· 多维表格，权重最高的一课。">LeeSpace · 豆包工作伙伴 · 妙搭 · 飞书 Tag（Team Agent）· 多维表格，权重最高的一课。</p>
+        <div class="mtags"><span class="tag" data-en="B Tools" data-zh="B 工具">B 工具</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Usable the day you get back to your desk. This module decides how many of the 30–50 participants produce results immediately." data-zh="回工位当天就能用。这一课决定 30–50 人里有多少人立刻出成果。">回工位当天就能用。这一课决定 30–50 人里有多少人立刻出成果。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="LeeSpace AI and Doubao Work Partner: the difference between personal use, a team work partner and a Team Agent" data-zh="LeeSpace AI 与豆包工作伙伴：个人用法、团队工作伙伴、Team Agent 的差别">LeeSpace AI 与豆包工作伙伴：个人用法、团队工作伙伴、Team Agent 的差别</li>
+            <li data-en="Build an app from scratch in Miaoda: one table into one shareable page" data-zh="妙搭从 0 搭一个应用：一个表格 → 一个可分享的页面">妙搭从 0 搭一个应用：一个表格 → 一个可分享的页面</li>
+            <li data-en="Feishu Base as the data foundation, Data Lake Genie for querying and checking definitions" data-zh="多维表格做数据底座，数据湖 Genie 取数并核对口径">多维表格做数据底座，数据湖 Genie 取数并核对口径</li>
+            <li data-en="Hands-on with the access request process and data classification" data-zh="权限申请流程与数据分级实操">权限申请流程与数据分级实操</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip hl">LeeSpace AI</span><span class="chip hl" data-en="Doubao Work Partner" data-zh="豆包工作伙伴">豆包工作伙伴</span><span class="chip hl" data-en="Miaoda" data-zh="妙搭">妙搭</span><span class="chip" data-en="Feishu Tag" data-zh="飞书 Tag">飞书 Tag</span><span class="chip">Aily</span><span class="chip" data-en="Feishu Base" data-zh="多维表格">多维表格</span><span class="chip" data-en="Data Lake Genie" data-zh="数据湖 Genie">数据湖 Genie</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One small Miaoda app (in use by you or your team)" data-zh="一个妙搭小应用（自己或本组在用）">一个妙搭小应用（自己或本组在用）</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Used by someone other than yourself, with the data permission boundaries clearly explained" data-zh="有非本人使用者，且能说清数据权限边界">有非本人使用者，且能说清数据权限边界</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M05 · Vibe Coding 与通用型 Agent" data-layer="base" data-cat="B">
+        <div class="top"><span class="code">M05</span><span class="wk">W5 · 3H</span></div>
+        <h3 data-en="Vibe Coding and general-purpose agents" data-zh="Vibe Coding 与通用型 Agent">Vibe Coding 与通用型 Agent</h3>
+        <p data-en="From writing code to taking on any job: how far a general-purpose agent can go." data-zh="从只会写代码，到什么活都敢接：通用 agent 能干到哪。">从只会写代码，到什么活都敢接：通用 agent 能干到哪。</p>
+        <div class="mtags"><span class="tag" data-en="B Tools" data-zh="B 工具">B 工具</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Hand the task over instead of doing it yourself. A general-purpose agent works across files and apps; your job is to give it goals, set its boundaries and check its results." data-zh="把任务交出去，而不是自己顶上去做。通用 agent 能跨文件、跨应用干活，你要会给它目标、给它边界、验它的结果。">把任务交出去，而不是自己顶上去做。通用 agent 能跨文件、跨应用干活，你要会给它目标、给它边界、验它的结果。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="The vibe coding loop: say what you want, let it write, run it and see, point out what is wrong, revise" data-zh="Vibe Coding 的循环：说清要什么 → 让它写 → 跑起来看结果 → 指出哪里不对 → 再改一版">Vibe Coding 的循环：说清要什么 → 让它写 → 跑起来看结果 → 指出哪里不对 → 再改一版</li>
+            <li data-en="What a general-purpose agent can take on: research, file organisation, scripts, cross-app operations — and where it fails" data-zh="通用型 Agent 能接什么活：查资料、理文件、跑脚本、跨应用操作，以及它接不住的地方">通用型 Agent 能接什么活：查资料、理文件、跑脚本、跨应用操作，以及它接不住的地方</li>
+            <li data-en="Give the same task to Codex, Claude Code and a general-purpose agent, and compare stability, speed and cost" data-zh="同一个任务分给 Codex、Claude Code、通用 agent，对比谁更稳、谁更快、谁更贵">同一个任务分给 Codex、Claude Code、通用 agent，对比谁更稳、谁更快、谁更贵</li>
+            <li data-en="How to brief a task: goal, available material, acceptance criteria, and what is off-limits" data-zh="任务怎么交代：目标、可用的资料、验收标准、不许碰的东西">任务怎么交代：目标、可用的资料、验收标准、不许碰的东西</li>
+            <li data-en="Boundaries: token cost, retrying failures, and which directories and repositories it must not touch" data-zh="边界：token 成本、失败重试、哪些目录与仓库不能让它碰">边界：token 成本、失败重试、哪些目录与仓库不能让它碰</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip hl">Codex</span><span class="chip hl">Claude Code</span><span class="chip">Grok Bot</span><span class="chip">OpenClaw</span><span class="chip">Hermes</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="Non-technical track: a small working tool. Technical track: one script plus one task-briefing template" data-zh="非技术线：改出一版能跑的小工具；技术线：一个脚本 + 一份任务交代模板">非技术线：改出一版能跑的小工具；技术线：一个脚本 + 一份任务交代模板</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Can explain what it got wrong, how you found out, and which sentence in your brief was unclear" data-zh="能讲清它改错过什么、你怎么发现的、交代里哪句话没写清">能讲清它改错过什么、你怎么发现的、交代里哪句话没写清</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M06 · Harness、Loop 和长周期任务" data-layer="adv" data-cat="C">
+        <div class="top"><span class="code">M06</span><span class="wk">W6 · 3H</span></div>
+        <h3 data-en="Harness, Loop and long-running tasks" data-zh="Harness、Loop 和长周期任务">Harness、Loop 和长周期任务</h3>
+        <p data-en="Make AI run reliably for days at a time: constraints, validation, resume from checkpoints." data-zh="让 AI 稳定跑起来，并且能连续跑几天：约束、校验、断点续跑。">让 AI 稳定跑起来，并且能连续跑几天：约束、校验、断点续跑。</p>
+        <div class="mtags"><span class="tag" data-en="C Engineering" data-zh="C 工程">C 工程</span><span class="tag" data-en="Advanced" data-zh="进阶">进阶</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="From 'works once' to 'runs reliably' to 'runs for days unwatched'. Reliability is the line between a demo and production." data-zh="从“能用一次”到“能稳定跑”，再到“没人看着也能跑几天”。稳定性是能不能上生产的分界线。">从“能用一次”到“能稳定跑”，再到“没人看着也能跑几天”。稳定性是能不能上生产的分界线。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="The harness trio: constraints (what it may do), tools (what it works with), validators (how results are checked)" data-zh="Harness 三件套：约束（能做什么）、工具（用什么做）、校验器（怎么验）">Harness 三件套：约束（能做什么）、工具（用什么做）、校验器（怎么验）</li>
+            <li data-en="The loop: plan, act, check, correct — with an exit condition for each stage" data-zh="Loop：计划 → 执行 → 检查 → 修正，每一环的退出条件">Loop：计划 → 执行 → 检查 → 修正，每一环的退出条件</li>
+            <li data-en="Classifying failures: missing knowledge, tool failure, format errors, overstepping authority" data-zh="失败分类：知识不足、工具失败、格式错、越权">失败分类：知识不足、工具失败、格式错、越权</li>
+            <li data-en="Observability: logs, intermediate artefacts, human intervention points" data-zh="可观测：日志、中间产物、人工介入点">可观测：日志、中间产物、人工介入点</li>
+            <li data-en="Long-running tasks: split into segments with clear outputs, set a checkpoint for each, know where to resume, keep progress visible to people" data-zh="长周期任务：分成有明确产出的小段、每段落一个检查点、断了从哪续、进度对人可见">长周期任务：分成有明确产出的小段、每段落一个检查点、断了从哪续、进度对人可见</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip hl">Codex</span><span class="chip" data-en="Doubao" data-zh="豆包">豆包</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One reliable workflow: five successful runs in a row, resuming by itself after one interruption" data-zh="一个稳定 workflow：连续 5 次跑通，中途断一次能自己续上">一个稳定 workflow：连续 5 次跑通，中途断一次能自己续上</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Failure rate and number of human interventions both within their thresholds" data-zh="失败率与人工介入次数在两个阈值内">失败率与人工介入次数在两个阈值内</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M07 · MCP、CLI 与 Skill" data-layer="base" data-cat="C">
+        <div class="top"><span class="code">M07</span><span class="wk">W7 · 3H</span></div>
+        <h3 data-en="MCP, CLI and Skills" data-zh="MCP、CLI 与 Skill">MCP、CLI 与 Skill</h3>
+        <p data-en="Package capability into assets others can use directly next time." data-zh="把能力封装成资产，下次别人可以直接用。">把能力封装成资产，下次别人可以直接用。</p>
+        <div class="mtags"><span class="tag" data-en="C Engineering" data-zh="C 工程">C 工程</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Turn individual capability into an organisational asset: built by one, reused by the whole team." data-zh="把个人能力变成组织资产。一个人做完，全组能复用。">把个人能力变成组织资产。一个人做完，全组能复用。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="CLI versus MCP: local files, scripts and batch work go to CLI; cross-system integration goes to MCP" data-zh="CLI 与 MCP 的分工：本机文件、脚本、批量处理用 CLI，跨系统接入用 MCP">CLI 与 MCP 的分工：本机文件、脚本、批量处理用 CLI，跨系统接入用 MCP</li>
+            <li data-en="Connecting external systems through MCP: how to hook up the data lake, knowledge base and business systems, and their permissions" data-zh="MCP 连接外部系统：数据湖、知识库、业务系统的接入方式与权限">MCP 连接外部系统：数据湖、知识库、业务系统的接入方式与权限</li>
+            <li data-en="A Skill's triggers, boundaries and fallbacks, including a clear statement of when not to use it" data-zh="Skill 的触发条件、边界与失败兜底，写清“什么时候不该用”">Skill 的触发条件、边界与失败兜底，写清“什么时候不该用”</li>
+            <li data-en="Publishing and version maintenance, so nobody rebuilds the same wheel" data-zh="上架流程与版本维护，避免重复造轮子">上架流程与版本维护，避免重复造轮子</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip">MCP</span><span class="chip" data-en="Data Lake" data-zh="数据湖">数据湖</span><span class="chip" data-en="Enterprise Skill" data-zh="企业 Skill">企业 Skill</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One enterprise Skill that others can call directly" data-zh="一个企业 Skill，他人可直接调用">一个企业 Skill，他人可直接调用</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="At least 2 colleagues call it successfully and give feedback" data-zh="至少 2 位同事成功调用并给出反馈">至少 2 位同事成功调用并给出反馈</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M08 · 版本管理：Git、GitHub 和 Worktree" data-layer="base" data-cat="C">
+        <div class="top"><span class="code">M08</span><span class="wk">W8 · 3H</span></div>
+        <h3 data-en="Version control: Git, GitHub and Worktree" data-zh="版本管理：Git、GitHub 和 Worktree">版本管理：Git、GitHub 和 Worktree</h3>
+        <p data-en="Leave a way back before AI starts: reversible, comparable, easy to hand over." data-zh="AI 动手前先留退路：可回退、可对比、可交接。">AI 动手前先留退路：可回退、可对比、可交接。</p>
+        <div class="mtags"><span class="tag" data-en="C Engineering" data-zh="C 工程">C 工程</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Leave a way back from every change: roll back what breaks, explain what worked. This is also the prerequisite for running agents in parallel later." data-zh="给每次改动留一条退路。改坏了能退回去，改对了能说清改了什么——这也是后面多 agent 并行的前提。">给每次改动留一条退路。改坏了能退回去，改对了能说清改了什么——这也是后面多 agent 并行的前提。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="Get three actions working first: clone, commit, revert. Experiment on a real spreadsheet or script, break it on purpose, then roll back" data-zh="三个动作先跑通：clone → commit → revert，拿一份真实表格或脚本做实验，故意改坏再退回去">三个动作先跑通：clone → commit → revert，拿一份真实表格或脚本做实验，故意改坏再退回去</li>
+            <li data-en="Branches and pull requests: one branch does one thing; review, merge, resolve conflicts" data-zh="分支与 Pull Request：一条分支只做一件事，评审、合并、解冲突">分支与 Pull Request：一条分支只做一件事，评审、合并、解冲突</li>
+            <li data-en="Worktree: several working directories from one repository, so agents each make their own changes without overwriting each other, then file their own PRs" data-zh="worktree：同一份仓库开出几个工作目录，几个 agent 各改各的、互不覆盖，最后各自提 PR">worktree：同一份仓库开出几个工作目录，几个 agent 各改各的、互不覆盖，最后各自提 PR</li>
+            <li data-en="Store work as an asset: repo structure, a README that explains usage, Issues as the task list, Releases for versions" data-zh="把东西存成资产：repo 结构、README 写清怎么用、Issue 当任务清单、Release 打版本">把东西存成资产：repo 结构、README 写清怎么用、Issue 当任务清单、Release 打版本</li>
+            <li data-en="Rules for working with AI: commit before it starts, one change per commit, and review the diff to see what it actually changed" data-zh="和 AI 协作的规矩：动手前先 commit，一次改动一个 commit，用 diff 复核它究竟改了什么">和 AI 协作的规矩：动手前先 commit，一次改动一个 commit，用 diff 复核它究竟改了什么</li>
+            <li data-en="Never push internal data, keys or tokens: visibility and permission settings" data-zh="别把内部数据、密钥、token 推上去：可见性与权限设置">别把内部数据、密钥、token 推上去：可见性与权限设置</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip hl">Git</span><span class="chip hl">GitHub</span><span class="chip">Worktree</span><span class="chip" data-en="Internal code hosting" data-zh="内部代码托管">内部代码托管</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="Your own repo: README plus at least 3 meaningful commits and 1 PR" data-zh="一个自己的 repo：README + 3 次以上有效 commit + 1 个 PR">一个自己的 repo：README + 3 次以上有效 commit + 1 个 PR</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Can independently break, roll back and fix, and explain the diff" data-zh="能独立完成“改坏 → 回退 → 改对”，并讲清 diff">能独立完成“改坏 → 回退 → 改对”，并讲清 diff</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M09 · 多智能体与跨 Agent 协同" data-layer="adv" data-cat="C">
+        <div class="top"><span class="code">M09</span><span class="wk">W9 · 3H</span></div>
+        <h3 data-en="Multi-agent and cross-agent collaboration" data-zh="多智能体与跨 Agent 协同">多智能体与跨 Agent 协同</h3>
+        <p data-en="Sub Agents · Agent Team · cross-agent handover, running in parallel." data-zh="Sub Agents · Agent Team · 跨 Agent 交接，并行跑。">Sub Agents · Agent Team · 跨 Agent 交接，并行跑。</p>
+        <div class="mtags"><span class="tag" data-en="C Engineering" data-zh="C 工程">C 工程</span><span class="tag" data-en="Advanced" data-zh="进阶">进阶</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Parallel, not serial overtime. Learn to split tasks across agents and have different agents take over from each other." data-zh="并行，而不是串行加班。学会把任务拆给多个 agent，也让不同的 agent 接力干活。">并行，而不是串行加班。学会把任务拆给多个 agent，也让不同的 agent 接力干活。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="Dividing work among sub agents: who researches, who writes, who reviews" data-zh="Sub Agents 分工：谁调研、谁写、谁审">Sub Agents 分工：谁调研、谁写、谁审</li>
+            <li data-en="Communication and arbitration in an Agent Team: who decides when there is a conflict" data-zh="Agent Team 的通信与仲裁，冲突时谁拍板">Agent Team 的通信与仲裁，冲突时谁拍板</li>
+            <li data-en="Cross-agent collaboration: OpenClaw researches, Codex edits, Claude reviews, coordinated through one shared task file instead of verbal handovers" data-zh="跨 Agent 协同：OpenClaw 查、Codex 改、Claude 审，靠一份共享任务文件交接，不靠人肉转述">跨 Agent 协同：OpenClaw 查、Codex 改、Claude 审，靠一份共享任务文件交接，不靠人肉转述</li>
+            <li data-en="Dynamic workflow: the process adapts to intermediate results" data-zh="Dynamic Workflow：流程按中间结果变化">Dynamic Workflow：流程按中间结果变化</li>
+            <li data-en="Parallel branches with worktree: how to merge and how to keep them from contaminating each other" data-zh="worktree 多分支并行，怎么合并、怎么不互相污染">worktree 多分支并行，怎么合并、怎么不互相污染</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">OpenClaw</span><span class="chip">Hermes</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One multi-agent prototype: at least two different agents handing over, with the handover interface written down" data-zh="一个多 agent 原型：至少两个不同 agent 交接，交接面写清楚">一个多 agent 原型：至少两个不同 agent 交接，交接面写清楚</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Compare throughput with the single-agent approach, and state where handovers happen and what gets lost" data-zh="与单 agent 方案对比任务吞吐，并说清交接点在哪、掉了什么">与单 agent 方案对比任务吞吐，并说清交接点在哪、掉了什么</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M10 · 内容与多模态生产线" data-layer="adv" data-cat="D">
+        <div class="top"><span class="code">M10</span><span class="wk">W10 · 3H</span></div>
+        <h3 data-en="Content and multimodal production line" data-zh="内容与多模态生产线">内容与多模态生产线</h3>
+        <p data-en="Image, video, voice and the review chain, with style kept on track." data-zh="图、视频、语音到审核链路，风格不跑偏。">图、视频、语音到审核链路，风格不跑偏。</p>
+        <div class="mtags"><span class="tag" data-en="D Content" data-zh="D 内容">D 内容</span><span class="tag" data-en="Advanced" data-zh="进阶">进阶</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Volume without losing control: consistent style, compliant wording, bounded rework." data-zh="批量产出且不失控。风格一致、口径合规、返工次数可控。">批量产出且不失控。风格一致、口径合规、返工次数可控。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="Consistency in image and video generation: style anchors, reference images, a shared prompt library" data-zh="图像与视频生成的一致性：风格锚、参考图、统一提示词库">图像与视频生成的一致性：风格锚、参考图、统一提示词库</li>
+            <li data-en="Batch production with review gates: AI draft, compliance self-check, human final" data-zh="批量生产与审核卡点：AI 初稿 → 合规自检 → 人工定稿">批量生产与审核卡点：AI 初稿 → 合规自检 → 人工定稿</li>
+            <li data-en="Brand wording and banned terms: compliance red lines in the food industry" data-zh="品牌口径与禁用词，食品行业的合规红线">品牌口径与禁用词，食品行业的合规红线</li>
+            <li data-en="Archive and index assets so they can be found next time" data-zh="素材归档与编码，下次能被检索到">素材归档与编码，下次能被检索到</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip">Seedream</span><span class="chip">Seedance</span><span class="chip">Veo</span><span class="chip" data-en="Voice generation" data-zh="语音生成">语音生成</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One content pipeline (including review gates)" data-zh="一条内容流水线（含审核卡点）">一条内容流水线（含审核卡点）</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Five pieces in one run, consistent in style and passing compliance self-check" data-zh="一次产出 5 条，风格一致、合规自检通过">一次产出 5 条，风格一致、合规自检通过</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M11 · 大语言模型与决策模型" data-layer="adv" data-cat="E">
+        <div class="top"><span class="code">M11</span><span class="wk">W11 · 3H</span></div>
+        <h3 data-en="Large language models and decision models" data-zh="大语言模型与决策模型">大语言模型与决策模型</h3>
+        <p data-en="Thinking fast and slow in models: let models take part in judgement, not just write for you (using Jev as the example)." data-zh="模型界“思考的快与慢”：让模型参与判断，而不只是帮你写东西（以 Jev 为例）。">模型界“思考的快与慢”：让模型参与判断，而不只是帮你写东西（以 Jev 为例）。</p>
+        <div class="mtags"><span class="tag" data-en="E Deployment" data-zh="E 落地">E 落地</span><span class="tag" data-en="Advanced" data-zh="进阶">进阶</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Break a real trade-off into a computable structure. Models fill in information, give reasons and argue the other side; the final call is still yours." data-zh="把一次真实取舍拆成可算的结构，让模型补信息、给理由、当反方，最后拍板的人还是你。">把一次真实取舍拆成可算的结构，让模型补信息、给理由、当反方，最后拍板的人还是你。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="The difference: an LLM produces a plausible-looking answer, and the same question asked twice may differ. A decision model (Jev, for example) turns variables, constraints and objectives into a computable structure, so the same input always gives the same result — you can recompute it and ask why this option won" data-zh="两类模型的区别：大语言模型生成的是“看起来合理的答案”，同一问题问两遍可能不一样；决策模型（以 Jev 为例）把变量、约束、目标写成可算的结构，同样输入必然算出同样结果，能复算、能追问“为什么是这个方案”">两类模型的区别：大语言模型生成的是“看起来合理的答案”，同一问题问两遍可能不一样；决策模型（以 Jev 为例）把变量、约束、目标写成可算的结构，同样输入必然算出同样结果，能复算、能追问“为什么是这个方案”</li>
+            <li data-en="When to use a decision model: clear objectives, hard constraints, a choice between options and a conclusion you must justify to others — production planning, allocation, budgeting, scheduling. For inspiration or clearer wording, an LLM is enough" data-zh="什么时候用决策模型：有明确目标和硬约束、要在几个方案之间取舍、结论要对人交代的时候——排产、配货、预算、排班这一类。只是要灵感、要把话说明白，用大语言模型就够">什么时候用决策模型：有明确目标和硬约束、要在几个方案之间取舍、结论要对人交代的时候——排产、配货、预算、排班这一类。只是要灵感、要把话说明白，用大语言模型就够</li>
+            <li data-en="How they work together: the LLM organises information scattered across documents, chats and past decisions into variables, constraints and candidate options, and hands them to the decision model to compute. The LLM then explains the result in plain language and argues the other side. Never let the LLM do the computing" data-zh="怎么配合：大语言模型把散在文档、群聊、历史决议里的信息整理成变量、约束和候选方案，交给决策模型去算；算完再由大语言模型把结果翻译成人话、给出反方意见。算的事不让大语言模型代劳">怎么配合：大语言模型把散在文档、群聊、历史决议里的信息整理成变量、约束和候选方案，交给决策模型去算；算完再由大语言模型把结果翻译成人话、给出反方意见。算的事不让大语言模型代劳</li>
+            <li data-en="In class: run the same options through three sets of weights in Jev, see where the conclusion flips and why, and which variables are actually unclear" data-zh="课上实操：以 Jev 为例跑同一组方案的三套权重，看结论在哪翻转、为什么翻转，哪些变量其实说不清">课上实操：以 Jev 为例跑同一组方案的三套权重，看结论在哪翻转、为什么翻转，哪些变量其实说不清</li>
+            <li data-en="Boundaries: inputs organised by an LLM can carry bias and fabrication, weights are set by people, and the person who signs must be human" data-zh="边界：输入是大语言模型整理的，就可能带偏差和编造，权重是人拍的，签字的人得是人">边界：输入是大语言模型整理的，就可能带偏差和编造，权重是人拍的，签字的人得是人</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip hl">Jev</span><span class="chip">Claude</span><span class="chip" data-en="Doubao" data-zh="豆包">豆包</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="One decision model: weight settings plus a comparison of conclusions under two scenarios" data-zh="一个决策模型：权重设定 + 两种情景下的结论对比">一个决策模型：权重设定 + 两种情景下的结论对比</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Can explain why the conclusion flips and point out what the model fabricated" data-zh="能说清结论为什么翻转，并指出模型编造的部分">能说清结论为什么翻转，并指出模型编造的部分</span></div>
+        </template>
+      </article>
+
+      <article class="mod" role="button" tabindex="0" aria-label="M12 · Capstone" data-layer="cap" data-cat="E">
+        <div class="top"><span class="code">M12</span><span class="wk" data-en="W12 · half day" data-zh="W12 · 半天">W12 · 半天</span></div>
+        <h3>Capstone</h3>
+        <p data-en="Hands-on: one in-department use case per person, one cross-department case per group." data-zh="实操；个人交 1 个本部门用例，分组交 1 个跨部门案例。">实操；个人交 1 个本部门用例，分组交 1 个跨部门案例。</p>
+        <div class="mtags"><span class="tag" data-en="E Deployment" data-zh="E 落地">E 落地</span><span class="tag" data-en="Capstone" data-zh="结业">结业</span></div>
+        <template class="det">
+          <div class="dsec"><h4 data-en="Objective" data-zh="目标">目标</h4><p data-en="Graduation. Only one thing counts: whether anyone is using it now." data-zh="结业。只认一样东西：这东西现在有没有人在用。">结业。只认一样东西：这东西现在有没有人在用。</p></div>
+          <div class="dsec"><h4 data-en="What we do in class" data-zh="课上做什么">课上做什么</h4><ul>
+            <li data-en="Live hands-on: run your own use case end to end — problem, approach, data — narrating as you go" data-zh="现场实操：把自己的用例跑一遍，从问题、做法到数据，边做边讲">现场实操：把自己的用例跑一遍，从问题、做法到数据，边做边讲</li>
+            <li data-en="Business acceptance: confirmed on site by the users, not approved on slides" data-zh="业务验收：使用方现场确认，不认 PPT 认可运行">业务验收：使用方现场确认，不认 PPT 认可运行</li>
+            <li data-en="Peer review: reusability, maintainability, risk" data-zh="同行评审：可复用性、可维护性、风险">同行评审：可复用性、可维护性、风险</li>
+            <li data-en="Management present; the best cases move into later projects" data-zh="管理层在场，优秀案例进入后续立项">管理层在场，优秀案例进入后续立项</li>
+          </ul></div>
+          <div class="dsec"><h4 data-en="Tools" data-zh="工具">工具</h4><div class="chips"><span class="chip" data-en="Your choice" data-zh="自选">自选</span></div></div>
+          <div class="dline"><span data-en="Deliverable" data-zh="交付">交付</span><span data-en="Individual: 1 deployable use case in your own department. Group: 1 cross-department collaboration case" data-zh="个人 1 个本部门可落地用例；分组 1 个跨部门协作案例">个人 1 个本部门可落地用例；分组 1 个跨部门协作案例</span></div>
+          <div class="dline"><span data-en="Assessment" data-zh="考核">考核</span><span data-en="Real users can run it; a demo without delivery does not count" data-zh="有真实使用者能跑起来；只演示不交付不计">有真实使用者能跑起来；只演示不交付不计</span></div>
+        </template>
+      </article>
+
+    </div>
+    <p class="sub" id="fcount" style="margin-top:14px;" data-en="12 modules · click a card for details" data-zh="共 12 个模块 · 点击卡片查看详情">共 12 个模块 · 点击卡片查看详情</p>
+  </div>
+  <div class="wrap foot"><span data-en="AI BUILDER PROGRAMME · CURRICULUM DRAFT" data-zh="AI BUILDER PROGRAMME · 课程规划稿">AI BUILDER PROGRAMME · 课程规划稿</span><span data-en="2027 H1 · INTERNAL" data-zh="2027 H1 · 内部资料">2027 H1 · 内部资料</span></div>
+</section>
+<!-- ================= 工具矩阵 ================= -->
+<section class="view" id="tools">
+  <div class="wrap phead">
+    <h2 class="h2" data-en="Tool matrix" data-zh="工具矩阵">工具矩阵</h2>
+    <p class="sub" style="margin-top:10px;" data-en="Left: the external tools used in class. Right: what you can use directly inside the company." data-zh="左边是课上用的外部工具，右边是公司里能直接用的那一套。">左边是课上用的外部工具，右边是公司里能直接用的那一套。</p>
+
+    <div class="tmatrix">
+      <div class="trow">
+        <div class="trow-head"><span class="no">01</span><span class="fam" data-en="In-house tools&lt;small&gt;Heaviest weighting&lt;/small&gt;" data-zh="企业内工具&lt;small data-en=&quot;Heaviest weighting&quot; data-zh=&quot;权重最高&quot;&gt;权重最高&lt;/small&gt;">企业内工具<small data-en="Heaviest weighting" data-zh="权重最高">权重最高</small></span></div>
+        <div class="chips">
+          <span class="chip hl">LeeSpace AI</span><span class="chip hl" data-en="Doubao Work Partner" data-zh="豆包工作伙伴">豆包工作伙伴</span><span class="chip hl" data-en="Miaoda" data-zh="妙搭">妙搭</span>
+          <span class="chip" data-en="Feishu Tag" data-zh="飞书 Tag">飞书 Tag</span><span class="chip">Aily</span><span class="chip" data-en="Feishu Base" data-zh="多维表格">多维表格</span><span class="chip" data-en="Data Lake Genie" data-zh="数据湖 Genie">数据湖 Genie</span>
+        </div>
+        <div class="tprod"><b data-en="Enterprise tools" data-zh="企业工具">企业工具</b><span data-en="Permission-scoped knowledge, workflow embedding, low-code building. M04 spends a full session on it." data-zh="权限内知识、流程嵌入、低代码搭建。M04 用一整节课讲。">权限内知识、流程嵌入、低代码搭建。M04 用一整节课讲。</span></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-head"><span class="no">02</span><span class="fam" data-en="External market tools&lt;small&gt;M03&lt;/small&gt;" data-zh="外部市场工具&lt;small&gt;M03&lt;/small&gt;">外部市场工具<small>M03</small></span></div>
+        <div class="chips">
+          <span class="chip hl">Perplexity</span><span class="chip hl">Grok</span><span class="chip">NotebookLM</span><span class="chip">DeepSeek Harness</span>
+        </div>
+        <div class="tprod"><b data-en="Market reference, verified internally" data-zh="市场参照，内部核实">市场参照，内部核实</b><span data-en="See what the market and your peers use first, then verify against the knowledge base and Data Lake Genie. External tools widen your view; they don't draw conclusions." data-zh="先看清市场上有什么、同行在用什么，再回到知识库与数据湖 Genie 上核对。外部工具负责开视野，不负责下结论。">先看清市场上有什么、同行在用什么，再回到知识库与数据湖 Genie 上核对。外部工具负责开视野，不负责下结论。</span></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-head"><span class="no">03</span><span class="fam" data-en="Vibe Coding and general-purpose agents&lt;small&gt;M05 · M06 · M08&lt;/small&gt;" data-zh="Vibe Coding 与通用型 Agent&lt;small&gt;M05 · M06 · M08&lt;/small&gt;">Vibe Coding 与通用型 Agent<small>M05 · M06 · M08</small></span></div>
+        <div class="chips">
+          <span class="chip">Git</span><span class="chip">GitHub</span>
+          <span class="chip hl">Codex</span><span class="chip hl">Claude Code</span><span class="chip">Grok Bot</span>
+          <span class="chip">OpenClaw</span><span class="chip">Hermes</span>
+        </div>
+        <div class="tprod"><b data-en="Miaoda + internal agent framework" data-zh="妙搭 + 内部 Agent 框架">妙搭 + 内部 Agent 框架</b><span data-en="Long-running execution, agent loop, parallelism. Crossing this line is what makes a Core Builder." data-zh="长任务执行、agent loop、并行。能不能跨过去，决定是不是 Core Builder。">长任务执行、agent loop、并行。能不能跨过去，决定是不是 Core Builder。</span></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-head"><span class="no">04</span><span class="fam" data-en="General-purpose reasoning&lt;small&gt;M01–M02&lt;/small&gt;" data-zh="通用推理&lt;small&gt;M01–M02&lt;/small&gt;">通用推理<small>M01–M02</small></span></div>
+        <div class="chips">
+          <span class="chip" data-en="Doubao" data-zh="豆包">豆包</span><span class="chip">DeepSeek</span><span class="chip">GPT</span><span class="chip">Gemini</span><span class="chip">Claude</span>
+        </div>
+        <div class="tprod"><b data-en="Doubao Work Partner" data-zh="豆包工作伙伴">豆包工作伙伴</b><span data-en="Reasoning, writing, structured output. The default base for every module." data-zh="推理、写作、结构化输出。所有课的默认底座。">推理、写作、结构化输出。所有课的默认底座。</span></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-head"><span class="no">05</span><span class="fam" data-en="Content and multimodal&lt;small&gt;M10&lt;/small&gt;" data-zh="内容与多模态&lt;small&gt;M10&lt;/small&gt;">内容与多模态<small>M10</small></span></div>
+        <div class="chips">
+          <span class="chip">Seedream</span><span class="chip">Seedance</span><span class="chip">Veo</span>
+          <span class="chip" data-en="Voice generation" data-zh="语音生成">语音生成</span><span class="chip" data-en="Presentation tools" data-zh="演示工具">演示工具</span>
+        </div>
+        <div class="tprod"><b data-en="AIGC content generation and approval chain" data-zh="AIGC 内容生成及审批链路">AIGC 内容生成及审批链路</b><span data-en="Generation quality, consistent style, batch production and compliance self-checks." data-zh="生成质量、风格一致、批量与合规自检。">生成质量、风格一致、批量与合规自检。</span></div>
+      </div>
+
+      <div class="trow">
+        <div class="trow-head"><span class="no">06</span><span class="fam" data-en="Integration and automation&lt;small&gt;M07–M09&lt;/small&gt;" data-zh="连接与自动化&lt;small&gt;M07–M09&lt;/small&gt;">连接与自动化<small>M07–M09</small></span></div>
+        <div class="chips">
+          <span class="chip">MCP</span><span class="chip">API</span><span class="chip" data-en="Workflow" data-zh="工作流">工作流</span><span class="chip">worktree</span><span class="chip">Git</span>
+        </div>
+        <div class="tprod"><b data-en="MCP + Data Lake + Skill marketplace" data-zh="MCP + 数据湖 + Skill 市场">MCP + 数据湖 + Skill 市场</b><span data-en="System integration, parallelism, observability." data-zh="系统打通、并行、可观测。">系统打通、并行、可观测。</span></div>
+      </div>
+    </div>
+
+    
+  </div>
+  <div class="wrap foot"><span data-en="AI BUILDER PROGRAMME · CURRICULUM DRAFT" data-zh="AI BUILDER PROGRAMME · 课程规划稿">AI BUILDER PROGRAMME · 课程规划稿</span><span data-en="Highlighted tools are covered in depth in class" data-zh="高亮为课程重点讲解工具">高亮为课程重点讲解工具</span></div>
+</section>
+
+<!-- ================= 认证 ================= -->
+<section class="view" id="cert">
+  <div class="wrap phead">
+    <h2 class="h2" data-en="Three certification levels" data-zh="三级认证">三级认证</h2>
+    <p class="sub" style="margin-top:10px;" data-en="Graduation requires at least one deployable use case in your own department. Resources favour those who keep delivering." data-zh="结业要求是至少 1 个本部门可落地用例，资源向持续产出者倾斜。">结业要求是至少 1 个本部门可落地用例，资源向持续产出者倾斜。</p>
+
+    <div class="ladder">
+      <div class="step">
+        <div class="lv">L1 · EXPLORER</div>
+        <h3 data-en="Explorer" data-zh="入门">入门</h3>
+        <p class="req" data-en="Complete all 7 foundation deliverables and present a scenario card you can explain clearly." data-zh="完成基础层 7 个交付，并交出一张能讲清楚的场景卡。">完成基础层 7 个交付，并交出一张能讲清楚的场景卡。</p>
+        <p class="gain" data-en="&lt;b&gt;You get&lt;/b&gt; entry to the advanced level." data-zh="&lt;b&gt;获得&lt;/b&gt;进入进阶层。"><b>获得</b>进入进阶层。</p>
+      </div>
+      <div class="step">
+        <div class="lv">L2 · BUILDER</div>
+        <h3 data-en="Advanced" data-zh="进阶层">进阶层</h3>
+        <p class="req" data-en="Complete all 4 advanced deliverables, with at least 1 workflow genuinely in use in your own job." data-zh="完成进阶层 4 个交付，且有 1 个 workflow 在本职工作里真实在用。">完成进阶层 4 个交付，且有 1 个 workflow 在本职工作里真实在用。</p>
+        <p class="gain" data-en="&lt;b&gt;You get&lt;/b&gt; priority tools and compute, with RMB 500 of GPT-6 tokens per month." data-zh="&lt;b&gt;获得&lt;/b&gt;优先工具与算力，每月 500 元 GPT-6 Token。"><b>获得</b>优先工具与算力，每月 500 元 GPT-6 Token。</p>
+      </div>
+      <div class="step">
+        <div class="lv">L3 · CORE BUILDER</div>
+        <h3 data-en="Amplifier" data-zh="放大器">放大器</h3>
+        <p class="req" data-en="Capstone accepted by the business, and two colleagues taught to do the same thing independently." data-zh="Capstone 通过业务验收，并教会 2 位同事独立完成同一件事。">Capstone 通过业务验收，并教会 2 位同事独立完成同一件事。</p>
+        <p class="gain" data-en="&lt;b&gt;You get&lt;/b&gt; certification, internal visibility and preferential development opportunities." data-zh="&lt;b&gt;获得&lt;/b&gt;认证、内部曝光、发展机会倾斜。"><b>获得</b>认证、内部曝光、发展机会倾斜。</p>
+      </div>
+    </div>
+
+    <div class="proc">
+      <div class="pstep"><div class="n">01 · W0</div><h4 data-en="Baseline assessment" data-zh="基线测评">基线测评</h4><p data-en="Assessed on entry, so we know where everyone starts." data-zh="进组先测一次，知道每个人从哪出发。">进组先测一次，知道每个人从哪出发。</p></div>
+      <div class="pstep"><div class="n">02 · W1–W8</div><h4 data-en="7 foundation micro-deliverables" data-zh="基础层 7 个微交付">基础层 7 个微交付</h4><p data-en="No exams, just deliverables: opportunity list, prompt template, research brief, small app, task breakdown, enterprise Skill, repository." data-zh="不考试，交东西：机会清单、Prompt 模板、研究简报、小应用、任务拆解、企业 Skill、版本库。">不考试，交东西：机会清单、Prompt 模板、研究简报、小应用、任务拆解、企业 Skill、版本库。</p></div>
+      <div class="pstep"><div class="n">03 · W6–W11</div><h4 data-en="4 advanced deliverables" data-zh="进阶层 4 个交付">进阶层 4 个交付</h4><p data-en="Make workflows reliable, gain efficiency with parallel agents, ship content and decisions, and work out the ROI." data-zh="把流程跑稳、多智能体并行提效、内容与决策落地，并算清 ROI。">把流程跑稳、多智能体并行提效、内容与决策落地，并算清 ROI。</p></div>
+      <div class="pstep"><div class="n">04 · W12</div><h4 data-en="Capstone acceptance" data-zh="Capstone 验收">Capstone 验收</h4><p data-en="It only passes when the business side confirms on site that it is in use." data-zh="业务方现场确认在用，才算过。">业务方现场确认在用，才算过。</p></div>
+    </div>
+
+    <div class="closing">
+      <p data-en="Assessment recognises one thing only: is anyone using it now.&lt;br&gt;Prototypes don't count. Demos don't count. Slides don't count." data-zh="过程考核只认一样东西：这东西现在有没有人在用。&lt;br&gt;原型不算，demo 不算，PPT 不算。">过程考核只认一样东西：这东西现在有没有人在用。<br>原型不算，demo 不算，PPT 不算。</p>
+    </div>
+  </div>
+  <div class="wrap foot"><span data-en="AI BUILDER PROGRAMME · CURRICULUM DRAFT" data-zh="AI BUILDER PROGRAMME · 课程规划稿">AI BUILDER PROGRAMME · 课程规划稿</span><span>LEE KUM KEE · AI &amp; DATA</span></div>
+</section>
+</main>
+
+<!-- ================= 抽屉 ================= -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle">
+  <div class="dhead">
+    <button class="dclose" id="dclose" aria-label="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+    </button>
+    <div class="dcode" id="dcode">M01</div>
+    <h3 class="dtitle" id="dtitle" data-en="Module" data-zh="模块">模块</h3>
+    <div class="dtags" id="dtags"></div>
+  </div>
+  <div class="dbody" id="dbody"></div>
+</aside>
+
+<script>
+(function(){
+  var views = document.querySelectorAll('.view');
+  var tabs  = document.querySelectorAll('.tab');
+  var hashMap = {overview:'overview', schedule:'schedule', tools:'tools', cert:'cert'};
+
+  function go(name, fromHash){
+    if(!hashMap[name]) name = 'overview';
+    views.forEach(function(v){ v.classList.toggle('active', v.id === name); });
+    tabs.forEach(function(t){
+      t.setAttribute('aria-selected', t.dataset.go === name ? 'true' : 'false');
+    });
+    if(!fromHash){
+      try{ history.replaceState(null,'','#'+name); }catch(e){}
+    }
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ go(t.dataset.go); });
+  });
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    if(el.classList.contains('tab')) return;
+    el.addEventListener('click', function(){ go(el.dataset.go); });
+  });
+
+  // ---------- 筛选 ----------
+  var grid = document.getElementById('sgrid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.mod'));
+  var countEl = document.getElementById('fcount');
+  var state = {layer:'all', cat:'all'};
+
+  function apply(){
+    var shown = 0;
+    cards.forEach(function(c){
+      var okL = (state.layer === 'all') || (c.dataset.layer === state.layer);
+      var okC = (state.cat === 'all') || (c.dataset.cat === state.cat);
+      var on = okL && okC;
+      c.classList.toggle('hide', !on);
+      if(on) shown++;
+    });
+    countEl.textContent = (LANG === 'en')
+      ? (shown === cards.length
+        ? cards.length + ' modules · click a card for details'
+        : shown + ' of ' + cards.length + ' modules · click a card for details')
+      : (shown === cards.length
+        ? '共 ' + cards.length + ' 个模块 · 点击卡片查看详情'
+        : '已筛选出 ' + shown + ' 个模块 · 点击卡片查看详情');
+  }
+
+  function wireGroup(id, key){
+    var root = document.getElementById(id);
+    root.addEventListener('click', function(e){
+      var btn = e.target.closest('.pill');
+      if(!btn) return;
+      root.querySelectorAll('.pill').forEach(function(p){ p.setAttribute('aria-pressed','false'); });
+      btn.setAttribute('aria-pressed','true');
+      state[key] = btn.dataset[key];
+      apply();
+    });
+  }
+  wireGroup('f-layer','layer');
+  wireGroup('f-cat','cat');
+
+  // ---------- 抽屉 ----------
+  var drawer  = document.getElementById('drawer');
+  var overlay = document.getElementById('overlay');
+  var dcode   = document.getElementById('dcode');
+  var dtitle  = document.getElementById('dtitle');
+  var dtags   = document.getElementById('dtags');
+  var dbody   = document.getElementById('dbody');
+  var lastFocus = null;
+
+  function openDrawer(card){
+    var tpl = card.querySelector('template.det');
+    dcode.textContent = card.querySelector('.code').textContent + '  ·  ' + card.querySelector('.wk').textContent;
+    dtitle.textContent = card.querySelector('h3').textContent;
+    dtags.innerHTML = '';
+    card.querySelectorAll('.foot .tag').forEach(function(t){
+      var s = document.createElement('span');
+      s.className = 'tag';
+      s.textContent = t.textContent;
+      dtags.appendChild(s);
+    });
+    dbody.innerHTML = '';
+    if(tpl){
+      dbody.appendChild(tpl.content.cloneNode(true));
+    }
+    lastFocus = card;
+    drawer.classList.add('on');
+    overlay.classList.add('on');
+    drawer.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('dclose').focus();
+  }
+
+  function closeDrawer(){
+    drawer.classList.remove('on');
+    overlay.classList.remove('on');
+    drawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  }
+
+  cards.forEach(function(c){
+    c.addEventListener('click', function(){ openDrawer(c); });
+    c.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openDrawer(c); }
+    });
+  });
+  document.getElementById('dclose').addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer.classList.contains('on')) closeDrawer();
+  });
+
+
+  // ---------- 中英切换 ----------
+  var LANG = 'zh';
+  try { LANG = localStorage.getItem('abp-lang') || 'zh'; } catch (e) {}
+
+  function eachTranslatable(fn){
+    document.querySelectorAll('[data-en]').forEach(fn);
+    document.querySelectorAll('template.det').forEach(function(t){
+      t.content.querySelectorAll('[data-en]').forEach(fn);
+    });
+  }
+
+  function setLang(lang){
+    LANG = (lang === 'en') ? 'en' : 'zh';
+    try { localStorage.setItem('abp-lang', LANG); } catch (e) {}
+    document.documentElement.lang = LANG === 'en' ? 'en' : 'zh-CN';
+    eachTranslatable(function(el){
+      if(!el.hasAttribute('data-zh')) el.setAttribute('data-zh', el.innerHTML);
+      el.innerHTML = LANG === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-zh');
+    });
+    document.title = LANG === 'en' ? 'AI Pioneer Development Programme · Schedule' : 'AI 先锋养成计划 · 课程表';
+    cards.forEach(function(a){
+      a.setAttribute('aria-label', a.querySelector('.code').textContent + ' · ' + a.querySelector('h3').textContent);
+    });
+    var lb = document.getElementById('langbtn');
+    lb.textContent = LANG === 'en' ? '中文' : 'EN';
+    lb.setAttribute('aria-label', LANG === 'en' ? '切换到中文' : 'Switch to English');
+    document.getElementById('dclose').setAttribute('aria-label', LANG === 'en' ? 'Close' : '关闭');
+    apply();
+  }
+
+  document.getElementById('langbtn').addEventListener('click', function(){
+    setLang(LANG === 'en' ? 'zh' : 'en');
+  });
+
+  // ---------- 路由 ----------
+  window.addEventListener('hashchange', function(){
+    var h = (location.hash || '').replace('#','');
+    go(hashMap[h] ? h : 'overview', true);
+  });
+  setLang(LANG);
+  var init = (location.hash || '').replace('#','');
+  go(hashMap[init] ? init : 'overview', true);
+})();
+</script>
+
+
+</body></html>
